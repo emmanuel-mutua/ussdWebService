@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: ussdWebService
+
+decoded:
+  cache:
+    port:
+    host:
+    password:
+    default-ttl: 180 #time to live (session expiry)
