@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: ussdWebService
+
+decoded:
+  cache:
+    port: 17923
+    host: ${{ secrets.REDIS_HOST }}
+    password: ${{ secrets.REDIS_PWD }}
+    default-ttl: 180 #time to live (session expiry)
