@@ -2,17 +2,15 @@ package com.example.ussdWebService.controller;
 
 import com.example.ussdWebService.service.UssdRoutingService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
 //RestController = Controller (Handle req and res) + ResponseBody ( return type of a method be writted direct to http response body)
 
 @RestController
-@CrossOrigin("*") //any domain can access
+@CrossOrigin("*")
+@RequestMapping("/")//any domain can access
 @RequiredArgsConstructor
 public class UssdController {
     /**
@@ -27,7 +25,7 @@ public class UssdController {
     private final UssdRoutingService ussdRoutingService;
     @PostMapping(path = "ussd")
     public String ussdIngress(@RequestParam String sessionId, @RequestParam String serviceCode,
-                              @RequestParam String phoneNumber, @RequestParam String text)  {
+                              @RequestParam String phoneNumber, @RequestParam String text) throws IOException {
         // forward to the service layer
         return ussdRoutingService.menuLevelRouter(sessionId, serviceCode, phoneNumber, text);
     }

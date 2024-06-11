@@ -4,7 +4,7 @@ spring:
 
 decoded:
   cache:
-    port:
-    host:
-    password:
+    port: 17923
+    host: redis-17923.c265.us-east-1-2.ec2.redns.redis-cloud.com
+    password: p6Vj4H864QWNj9cYZPn5AXFBvW08TRkE
     default-ttl: 180 #time to live (session expiry)
